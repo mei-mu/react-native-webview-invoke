@@ -55,11 +55,11 @@ if (isBrowser) {
     }
 
     // onMessage react native
-    window.document.addEventListener('message', e => originalPostMessage && listener(JSON.parse(e.data)))
-    // onMessage react-native-webview 
-    window.addEventListener('message', e => ReactNativeWebView && listener(JSON.parse(e.data)))
+    window.document.addEventListener('message', e => e.data && originalPostMessage && listener(JSON.parse(e.data)))
+    // onMessage react-native-webview
+    window.addEventListener('message', e => e.data && ReactNativeWebView && listener(JSON.parse(e.data)))
     // onMessage react-native-webview  with android
-    window.document.addEventListener('message', e => ReactNativeWebView && listener(JSON.parse(e.data)));
+    window.document.addEventListener('message', e => e.data && ReactNativeWebView && listener(JSON.parse(e.data)))
 
 }
 
